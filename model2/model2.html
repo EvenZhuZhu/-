@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>model2</title>
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="css/model2.css">
+</head>
+<body>
+
+<img src="./images/01.jpg" alt="" class="imgs imgs1">
+<div class="imgsouter">
+  <img src="./images/02.jpg" alt="" class="imgs imgs2">
+  <div class="inputouter">
+    <input type="text" placeholder="您的称呼" class="name">
+    <input type="number" placeholder="您的手机号 *" class="phone">
+    <input type="text" placeholder="需要的商标类别" class="leibie">
+    <input type="submit" class="tijiao" value="" id="sub">
+  </div>
+</div>
+<img src="./images/03.jpg" alt="" class="imgs imgs3">
+<img src="./images/04.jpg" alt="" class="imgs imgs4">
+<div class="imgsouter1">
+  <img src="./images/05.jpg" alt="" class="imgs imgs5">
+  <div class="inputouter">
+    <input type="text" placeholder="您的称呼" class="name">
+    <input type="number" placeholder="您的手机号 *" class="phone">
+    <input type="submit" class="tijiao" value="" id="sub1">
+  </div>
+</div>
+<img src="./images/06.jpg" alt="" class="imgs imgs6">
+<img src="./images/07.jpg" alt="" class="imgs imgs7">
+
+<div class="outer">
+  <img src="./images/08.jpg" alt="" class="imgs imgs8">
+  <div class="inner" id="sub2"></div>
+</div>
+
+<div class="mask">
+  <div class="closeouter">
+    <img src="./images/02.png" alt="">
+    <div class="inputouter">
+      <input type="text" placeholder="您的称呼" class="name">
+      <input type="number" placeholder="您的手机号码" class="phone">
+      <input type="text" class="thir" placeholder="您的微信号" class="weixin">
+      <input type="submit" class="tijiao" value="" id="sub3">
+    </div>
+    <div class="close"></div>
+  </div>
+</div>
+
+<script src="./lib/jquery.min.js"></script>
+<script>
+  //名称input框限制
+  $('input.name,input.weixin').on('keyup', function () {
+    var str = $(this).val()
+    var value = str.substr(0, 10)
+    $(this).val(value)
+  })
+  
+  //商标类别input框限制
+  $('input.leibie').on('keyup', function () {
+    var str = $(this).val()
+    var value = str.substr(0, 80)
+    $(this).val(value)
+  })
+  
+  var flag = 0
+  $('.outer').click(function () {
+    $('.mask').css('display', 'block')
+    flag = 1
+    //监听滚动事件
+    document.addEventListener('touchmove', function (event) {
+      //判断是遮罩显示时执行，禁止滚屏
+      if (flag == 1) {
+        event.preventDefault()
+      }
+    })
+  
+    //关闭弹框
+    $('.mask .closeouter .close').click(function () {
+      $('.mask').css('display', 'none')
+      flag = 0;
+    })
+  })
+
+  $('#sub').click(function () {
+    alert("hehh")
+  })
+  
+  $('#sub1').click(function () {
+    alert("hehh")
+  })
+
+  $('#sub3').click(function () {
+    alert("hehh")
+  })
+
+</script>
+</body>
+</html>

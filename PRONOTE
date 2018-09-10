@@ -1,0 +1,8 @@
+移动端限制字数可以用maxlength="10"
+
+下面代码有bug,搜狗中中文长度超出时候，输进去的是英文字母
+ $('input.leibie').on('keyup', function () {
+    var str = $(this).val()
+    var value = str.substr(0, 80)
+    $(this).val(value)
+  })
